@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/entities/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/fx/waveform/waveform1.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.75406
+height = 22.0832
+
+[node name="TurretProjectile" instance=ExtResource( 1 )]
+VELOCITY = 400.0
+
+[node name="LifetimeTimer" parent="." index="0"]
+wait_time = 3.0
+
+[node name="Hitbox" parent="." index="2"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+position = Vector2( -2, -1 )
+rotation = 0.00567358
+scale = Vector2( 0.523483, 0.508172 )
+texture = ExtResource( 2 )
